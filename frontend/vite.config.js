@@ -8,7 +8,7 @@ export default defineConfig({
     // Proxy API calls to the Express backend during development
     proxy: {
       "/api": {
-        target: "http://localhost:5000",
+        target: "https://ai-robotics-workshop-1gnq8l0ez-love-sharma-s-projects.vercel.app",
         changeOrigin: true,
       },
     },
