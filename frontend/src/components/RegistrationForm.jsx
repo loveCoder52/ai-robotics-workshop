@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useToast } from "../context/ToastContext";
+import axios from "axios";
 
 const validate = ({ name, email, phone }) => {
   const errors = {};
@@ -52,6 +53,8 @@ const RegistrationForm = () => {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -70,18 +73,19 @@ const RegistrationForm = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
+      const response = await axios.post(
+        `${backendUrl}/api/enquiry`,
+        form
+      );
 
-      if (data.success) {
+      if (response.data.success) {
         setSubmitted(true);
         addToast("You're enrolled! We'll be in touch soon. 🎉", "success");
       } else {
-        addToast(data.message || "Something went wrong.", "error");
+        addToast(
+          response.data.message || "Something went wrong.",
+          "error"
+        );
       }
     } catch (err) {
       addToast("Network error. Please try again.", "error");
