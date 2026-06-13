@@ -1,9 +1,6 @@
 const Enquiry = require("../models/Enquiry");
 const mongoose = require("mongoose");
 
-
-const inMemoryStore = [];
-
 const submitEnquiry = async (req, res) => {
   try {
     const { name, email, phone } = req.body;

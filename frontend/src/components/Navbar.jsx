@@ -11,7 +11,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Add shadow when user scrolls past 20px
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -20,8 +19,10 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 bg-white
-        ${scrolled ? "bg-purple-500/90 backdrop-blur-md shadow-md" : "bg-transparent"}`}
+      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 
+        ${scrolled ? "bg-purple-500/90 backdrop-blur-md shadow-md" : "bg-white/90"}
+    `}
+    // 
     >
       <nav
         aria-label="Main navigation"
@@ -51,10 +52,14 @@ const Navbar = () => {
         {/* CTA button — desktop */}
         <a
           href="#register"
-          className={`hidden md:inline-flex items-center gap-2 bg-brand-violet text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-brand-indigo transition-colors duration-200 shadow-md hover:shadow-lg ${scrolled ? "bg-white/90 backdrop-blur-md shadow-md text-purple-500" : "bg-purple-500/90 backdrop-blur-md shadow-md"}`}
+          className={`hidden md:inline-flex items-center gap-2 text-sm font-semibold px-5 py-2 rounded-full hover:bg-brand-indigo transition-colors duration-200 shadow-md hover:shadow-lg 
+           ${scrolled ? "bg-white/90 backdrop-blur-md shadow-md text-purple-500" : "bg-purple-500/90 backdrop-blur-md shadow-md text-white"}
+            `}
         >
-          Enroll Now 🚀
+          Enroll Now 
         </a>
+
+         
 
         {/* Hamburger — mobile */}
         <button

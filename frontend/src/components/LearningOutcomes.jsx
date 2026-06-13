@@ -23,7 +23,7 @@ const OUTCOMES = [
     description:
       "Start with Scratch-style block coding, then graduate to basic Python — building the foundation for lifelong programming.",
     icon: "💻",
-    color: "brand-indigo",
+    color: "brand-red",
   },
   {
     number: "04",
