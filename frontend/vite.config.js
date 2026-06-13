@@ -8,7 +8,7 @@ export default defineConfig({
     // Proxy API calls to the Express backend during development
     proxy: {
       "/api": {
-        target: "https://ai-robotics-workshop-1gnq8l0ez-love-sharma-s-projects.vercel.app",
+        target: "https://ai-robotics-workshop.onrender.com",
         changeOrigin: true,
       },
     },
