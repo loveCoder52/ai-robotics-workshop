@@ -9,7 +9,6 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: "https://ai-robotics-workshop.onrender.com",
-        // target: "http://localhost5173",
         changeOrigin: true,
       },
     },
